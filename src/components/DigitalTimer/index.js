@@ -192,7 +192,7 @@ class DigitalTimer extends Component {
 
     return (
       <div className="app-container">
-        {title ? <h4 className="heading">{title}</h4> : null}
+        <h4 className="heading">{title}</h4>
         <div className="digital-timer-container">
           <div className="timer-display-container">
             <div className="elapsed-time-container">
