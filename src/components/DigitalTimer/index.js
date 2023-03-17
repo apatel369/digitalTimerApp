@@ -12,6 +12,10 @@ const initialState = {
   timerLimitInMinutes: 20,
 }
 
+const params = new URL(window.location).searchParams
+const title = params.get('title') // is the string "Jonathan Smith".
+console.log('title :>> ', title)
+
 class DigitalTimer extends Component {
   state = initialState
 
@@ -188,8 +192,7 @@ class DigitalTimer extends Component {
 
     return (
       <div className="app-container">
-        {/* <h4 className="heading">Manan Chintan Break</h4> */}
-
+        {title ? <h4 className="heading">{title}</h4> : null}
         <div className="digital-timer-container">
           <div className="timer-display-container">
             <div className="elapsed-time-container">
