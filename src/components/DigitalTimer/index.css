@@ -245,10 +245,11 @@
   font-size: 32px;
   font-weight: 500;
   width: 100px;
-  border-radius: 8px;
   margin: 0px;
   padding: 8px;
   padding-left: 10px;
+  border: 1px solid;
+  border-radius: 8px;
 }
 
 .plus-button {
