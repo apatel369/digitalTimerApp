@@ -159,7 +159,11 @@ class DigitalTimer extends Component {
           onClick={this.onResetTimer}
           type="button"
         >
-          <img alt="reset icon" className="timer-controller-icon" src={reset} />
+          <img
+            alt="reset icon"
+            className="timer-controller-icon reset-btn"
+            src={reset}
+          />
         </button>
       </div>
     )

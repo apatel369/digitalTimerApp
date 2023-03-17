@@ -178,6 +178,11 @@
     height: 70px;
     margin-right: 12px;
   }
+
+  .reset-btn {
+    width: 60px;
+    height: 55px;
+  }
 }
 
 .timer-controller-label {
@@ -191,6 +196,7 @@
   .timer-controller-label {
     font-size: 32px;
   }
+
 }
 
 .timer-limit-controller-container {
