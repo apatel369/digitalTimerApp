@@ -8,7 +8,7 @@
 }
 
 .heading {
-  color: #7288AA;
+  color: #7288aa;
   font-family: 'Roboto';
   font-size: 32px;
   font-weight: 500;
@@ -196,7 +196,6 @@
   .timer-controller-label {
     font-size: 32px;
   }
-
 }
 
 .timer-limit-controller-container {
