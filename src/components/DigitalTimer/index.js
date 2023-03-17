@@ -1,5 +1,8 @@
 import {Component} from 'react'
 import logo from '../../assets/workshop-logo.png'
+import reset from '../../assets/back.1.svg'
+import play from '../../assets/play.2.svg'
+import pause from '../../assets/pause.4.svg'
 
 import './index.css'
 
@@ -67,28 +70,28 @@ class DigitalTimer extends Component {
             // disabled={isTimerRunning}
             onClick={() => this.onIncreaseTimerLimitInMinutes(1)}
           >
-            +1 min
+            +1
           </button>
           <button
             className="limit-value plus-button"
             // disabled={isTimerRunning}
             onClick={() => this.onIncreaseTimerLimitInMinutes(2)}
           >
-            +2 min
+            +2
           </button>
           <button
             className="limit-value plus-button"
             // disabled={isTimerRunning}
             onClick={() => this.onIncreaseTimerLimitInMinutes(5)}
           >
-            +5 min
+            +5
           </button>
           <button
             className="limit-value plus-button"
             // disabled={isTimerRunning}
             onClick={() => this.onIncreaseTimerLimitInMinutes(10)}
           >
-            +10 min
+            +10
           </button>
         </section>
       </div>
@@ -135,9 +138,7 @@ class DigitalTimer extends Component {
 
   renderTimerController = () => {
     const {isTimerRunning} = this.state
-    const startOrPauseImageUrl = isTimerRunning
-      ? 'https://assets.ccbp.in/frontend/react-js/pause-icon-img.png'
-      : 'https://assets.ccbp.in/frontend/react-js/play-icon-img.png'
+    const startOrPauseImageUrl = isTimerRunning ? pause : play
     const startOrPauseAltText = isTimerRunning ? 'pause icon' : 'play icon'
 
     return (
@@ -152,21 +153,13 @@ class DigitalTimer extends Component {
             className="timer-controller-icon"
             src={startOrPauseImageUrl}
           />
-          <p className="timer-controller-label">
-            {isTimerRunning ? 'Pause' : 'Start'}
-          </p>
         </button>
         <button
           className="timer-controller-btn"
           onClick={this.onResetTimer}
           type="button"
         >
-          <img
-            alt="reset icon"
-            className="timer-controller-icon"
-            src="https://assets.ccbp.in/frontend/react-js/reset-icon-img.png"
-          />
-          <p className="timer-controller-label">Reset</p>
+          <img alt="reset icon" className="timer-controller-icon" src={reset} />
         </button>
       </div>
     )
@@ -191,8 +184,8 @@ class DigitalTimer extends Component {
 
     return (
       <div className="app-container">
-        <img src={logo} className="logo" alt="" />
-        {/* <h1 className="heading">Digital Timer</h1> */}
+        {/* <h4 className="heading">Manan Chintan Break</h4> */}
+
         <div className="digital-timer-container">
           <div className="timer-display-container">
             <div className="elapsed-time-container">
@@ -202,10 +195,13 @@ class DigitalTimer extends Component {
               <p className="timer-state">{labelText}</p>
             </div>
           </div>
-          <div className="controls-container">
-            {this.renderTimerController()}
-            {this.renderTimerLimitController()}
+          <div>
+            <img src={logo} className="logo" alt="" />
           </div>
+        </div>
+        <div className="controls-container">
+          {this.renderTimerController()}
+          {this.renderTimerLimitController()}
         </div>
       </div>
     )
