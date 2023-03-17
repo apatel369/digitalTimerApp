@@ -1,11 +1,12 @@
 import {Component} from 'react'
+import logo from '../../assets/workshop-logo.png'
 
 import './index.css'
 
 const initialState = {
   isTimerRunning: false,
   timeElapsedInSeconds: 0,
-  timerLimitInMinutes: 25,
+  timerLimitInMinutes: 20,
 }
 
 class DigitalTimer extends Component {
@@ -27,39 +28,69 @@ class DigitalTimer extends Component {
     }
   }
 
-  onIncreaseTimerLimitInMinutes = () =>
+  onIncreaseTimerLimitInMinutes = increment =>
     this.setState(prevState => ({
-      timerLimitInMinutes: prevState.timerLimitInMinutes + 1,
+      timerLimitInMinutes: +prevState.timerLimitInMinutes + increment,
     }))
+
+  handleChange = event => {
+    event.preventDefault()
+    this.setState({timerLimitInMinutes: +event.target.value})
+  }
 
   renderTimerLimitController = () => {
     const {timerLimitInMinutes, timeElapsedInSeconds} = this.state
-    const isButtonsDisabled = timeElapsedInSeconds > 0
+    const isTimerRunning = timeElapsedInSeconds > 0
 
     return (
       <div className="timer-limit-controller-container">
         <p className="limit-label">Set Timer limit</p>
         <div className="timer-limit-controller">
-          <button
-            className="limit-controller-button"
-            disabled={isButtonsDisabled}
-            onClick={this.onDecreaseTimerLimitInMinutes}
-            type="button"
+          <div
+            onSubmit={this.handleChange}
+            className="limit-label-and-value-container"
           >
-            -
-          </button>
-          <div className="limit-label-and-value-container">
-            <p className="limit-value">{timerLimitInMinutes}</p>
+            <input
+              className="limit-value"
+              value={timerLimitInMinutes}
+              onChange={this.handleChange}
+              disabled={isTimerRunning}
+              type="number"
+              min={0}
+              max={99}
+            />
           </div>
-          <button
-            className="limit-controller-button"
-            disabled={isButtonsDisabled}
-            onClick={this.onIncreaseTimerLimitInMinutes}
-            type="button"
-          >
-            +
-          </button>
         </div>
+        <section>
+          <button
+            className="limit-value plus-button"
+            // disabled={isTimerRunning}
+            onClick={() => this.onIncreaseTimerLimitInMinutes(1)}
+          >
+            +1 min
+          </button>
+          <button
+            className="limit-value plus-button"
+            // disabled={isTimerRunning}
+            onClick={() => this.onIncreaseTimerLimitInMinutes(2)}
+          >
+            +2 min
+          </button>
+          <button
+            className="limit-value plus-button"
+            // disabled={isTimerRunning}
+            onClick={() => this.onIncreaseTimerLimitInMinutes(5)}
+          >
+            +5 min
+          </button>
+          <button
+            className="limit-value plus-button"
+            // disabled={isTimerRunning}
+            onClick={() => this.onIncreaseTimerLimitInMinutes(10)}
+          >
+            +10 min
+          </button>
+        </section>
       </div>
     )
   }
@@ -155,11 +186,13 @@ class DigitalTimer extends Component {
 
   render() {
     const {isTimerRunning} = this.state
+    console.log('isTimerRunning :>> ', isTimerRunning)
     const labelText = isTimerRunning ? 'Running' : 'Paused'
 
     return (
       <div className="app-container">
-        <h1 className="heading">Digital Timer</h1>
+        <img src={logo} className="logo" alt="" />
+        {/* <h1 className="heading">Digital Timer</h1> */}
         <div className="digital-timer-container">
           <div className="timer-display-container">
             <div className="elapsed-time-container">

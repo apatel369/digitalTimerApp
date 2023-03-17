@@ -3,26 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-image: linear-gradient(
-    to bottom,
-    #ffffff,
-    #cffcf1,
-    #cffcf1,
-    #defafe
-  );
-}
+  max-height: 100vh;
 
-@media screen and (min-width: 768px) {
-  .app-container {
-    background-image: linear-gradient(
-      to right,
-      #ffffff,
-      #cffcf1,
-      #cffcf1,
-      #defafe
-    );
-  }
 }
 
 .heading {
@@ -42,13 +24,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
+  width: 100%;
+}
+
+.logo {
+  /* float: right; */
+  /* padding: 10px; */
+  width: 100px;
+  margin-left: auto;
+  /* padding-left: 30px; */
+  /* margin-top: 20px; */
+  /* margin-top: -120px; */
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 @media screen and (min-width: 768px) {
   .digital-timer-container {
     flex-direction: row;
-    max-width: 1140px;
+    max-width: 90%;
+    align-items: center;
+  }
+
+  .logo {
+    width: 150px;
+    /* margin-top: -50px; */
   }
 }
 
@@ -61,6 +61,8 @@
   background-image: url('https://assets.ccbp.in/frontend/react-js/digital-timer-elapsed-bg.png');
   background-size: cover;
   background-position: center;
+  max-width: 100%;
+  max-height: 100%
 }
 
 @media (min-width: 576px) {
@@ -79,8 +81,9 @@
 
 @media (min-width: 992px) {
   .timer-display-container {
-    width: 600px;
-    height: 600px;
+    width: 850px;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
@@ -97,29 +100,29 @@
 
 @media (min-width: 576px) {
   .elapsed-time-container {
-    width: 150px;
-    height: 150px;
+    width: 350px;
+    height: 350px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .elapsed-time-container {
-    width: 200px;
-    height: 200px;
+    width: 550px;
+    height: 550px;
   }
 }
 
 .elapsed-time {
   color: #00d9f5;
   font-family: 'Roboto';
-  font-size: 28px;
+  font-size: 38px;
   font-weight: bold;
   margin: 0px;
 }
 
 @media screen and (min-width: 768px) {
   .elapsed-time {
-    font-size: 48px;
+    font-size: 180px;
   }
 }
 
@@ -229,7 +232,7 @@
 .limit-value {
   text-align: center;
   color: #1e293b;
-  background-image: linear-gradient(to right, #00f5a0, #00d9f5);
+  background-image: linear-gradient(to right, #00f59f9e, #00d8f55c);
   font-family: 'Roboto';
   font-size: 32px;
   font-weight: 500;
@@ -237,4 +240,14 @@
   border-radius: 8px;
   margin: 0px;
   padding: 8px;
+  padding-left: 10px;
+}
+
+.plus-button {
+  font-size: 15px;
+  width: 80px;
+  margin-inline: 3px;
+  margin-block: 15px;
+  background-image: linear-gradient(to right, #00f59f07, #00d8f594);
+  border: #ffffff;
 }
