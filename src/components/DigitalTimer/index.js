@@ -51,7 +51,7 @@ class DigitalTimer extends Component {
 
     return (
       <div className="timer-limit-controller-container">
-        <p className="limit-label">Set Timer limit</p>
+        {/* <p className="limit-label">Set Timer limit</p> */}
         <div className="timer-limit-controller">
           <div
             onSubmit={this.handleChange}
@@ -67,6 +67,7 @@ class DigitalTimer extends Component {
               max={99}
             />
           </div>
+          {this.renderTimerController()}
         </div>
         <section>
           <button
@@ -207,7 +208,6 @@ class DigitalTimer extends Component {
           </div>
         </div>
         <div className="controls-container">
-          {this.renderTimerController()}
           {this.renderTimerLimitController()}
         </div>
       </div>
