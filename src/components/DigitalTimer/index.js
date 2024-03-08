@@ -1,5 +1,5 @@
-import {Component} from 'react'
-import logo from '../../assets/workshop-logo.png'
+import { Component } from 'react'
+import logo from '../../assets/logo-NYKW-2024.png'
 import reset from '../../assets/back.1.svg'
 import play from '../../assets/play.2.svg'
 import pause from '../../assets/pause.4.svg'
@@ -26,7 +26,7 @@ class DigitalTimer extends Component {
   clearTimerInterval = () => clearInterval(this.intervalId)
 
   onDecreaseTimerLimitInMinutes = () => {
-    const {timerLimitInMinutes} = this.state
+    const { timerLimitInMinutes } = this.state
 
     if (timerLimitInMinutes > 1) {
       this.setState(prevState => ({
@@ -42,11 +42,11 @@ class DigitalTimer extends Component {
 
   handleChange = event => {
     event.preventDefault()
-    this.setState({timerLimitInMinutes: +event.target.value})
+    this.setState({ timerLimitInMinutes: +event.target.value })
   }
 
   renderTimerLimitController = () => {
-    const {timerLimitInMinutes, timeElapsedInSeconds} = this.state
+    const { timerLimitInMinutes, timeElapsedInSeconds } = this.state
     const isTimerRunning = timeElapsedInSeconds > 0
 
     return (
@@ -109,12 +109,12 @@ class DigitalTimer extends Component {
   }
 
   incrementTimeElapsedInSeconds = () => {
-    const {timerLimitInMinutes, timeElapsedInSeconds} = this.state
+    const { timerLimitInMinutes, timeElapsedInSeconds } = this.state
     const isTimerCompleted = timeElapsedInSeconds === timerLimitInMinutes * 60
 
     if (isTimerCompleted) {
       this.clearTimerInterval()
-      this.setState({isTimerRunning: false})
+      this.setState({ isTimerRunning: false })
     } else {
       this.setState(prevState => ({
         timeElapsedInSeconds: prevState.timeElapsedInSeconds + 1,
@@ -131,18 +131,18 @@ class DigitalTimer extends Component {
     const isTimerCompleted = timeElapsedInSeconds === timerLimitInMinutes * 60
 
     if (isTimerCompleted) {
-      this.setState({timeElapsedInSeconds: 0})
+      this.setState({ timeElapsedInSeconds: 0 })
     }
     if (isTimerRunning) {
       this.clearTimerInterval()
     } else {
       this.intervalId = setInterval(this.incrementTimeElapsedInSeconds, 1000)
     }
-    this.setState(prevState => ({isTimerRunning: !prevState.isTimerRunning}))
+    this.setState(prevState => ({ isTimerRunning: !prevState.isTimerRunning }))
   }
 
   renderTimerController = () => {
-    const {isTimerRunning} = this.state
+    const { isTimerRunning } = this.state
     const startOrPauseImageUrl = isTimerRunning ? pause : play
     const startOrPauseAltText = isTimerRunning ? 'pause icon' : 'play icon'
 
@@ -175,7 +175,7 @@ class DigitalTimer extends Component {
   }
 
   getElapsedSecondsInTimeFormat = () => {
-    const {timerLimitInMinutes, timeElapsedInSeconds} = this.state
+    const { timerLimitInMinutes, timeElapsedInSeconds } = this.state
     const totalRemainingSeconds =
       timerLimitInMinutes * 60 - timeElapsedInSeconds
     const minutes = Math.floor(totalRemainingSeconds / 60)
@@ -187,7 +187,7 @@ class DigitalTimer extends Component {
   }
 
   render() {
-    const {isTimerRunning} = this.state
+    const { isTimerRunning } = this.state
     console.log('isTimerRunning :>> ', isTimerRunning)
     const labelText = isTimerRunning ? 'Running' : 'Paused'
 
