@@ -25,16 +25,6 @@ class DigitalTimer extends Component {
 
   clearTimerInterval = () => clearInterval(this.intervalId)
 
-  onDecreaseTimerLimitInMinutes = () => {
-    const {timerLimitInMinutes} = this.state
-
-    if (timerLimitInMinutes > 1) {
-      this.setState(prevState => ({
-        timerLimitInMinutes: prevState.timerLimitInMinutes - 1,
-      }))
-    }
-  }
-
   onIncreaseTimerLimitInMinutes = increment =>
     this.setState(prevState => ({
       timerLimitInMinutes: +prevState.timerLimitInMinutes + increment,
@@ -123,11 +113,8 @@ class DigitalTimer extends Component {
   }
 
   onStartOrPauseTimer = () => {
-    const {
-      isTimerRunning,
-      timeElapsedInSeconds,
-      timerLimitInMinutes,
-    } = this.state
+    const {isTimerRunning, timeElapsedInSeconds, timerLimitInMinutes} =
+      this.state
     const isTimerCompleted = timeElapsedInSeconds === timerLimitInMinutes * 60
 
     if (isTimerCompleted) {
