@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import logo from '../../assets/logo-NYKW-2024.png'
+import logo from '../../assets/logo.png'
 import reset from '../../assets/back.1.svg'
 import play from '../../assets/play.2.svg'
 import pause from '../../assets/pause.4.svg'
